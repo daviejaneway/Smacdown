@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 @class MPPreferences;
-
+@class Pluralist;
 
 @interface MPDocument : NSDocument
 

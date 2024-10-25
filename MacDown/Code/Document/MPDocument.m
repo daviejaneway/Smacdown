@@ -8,7 +8,6 @@
 
 #import "MPDocument.h"
 #import <WebKit/WebKit.h>
-#import <JJPluralForm/JJPluralForm.h>
 #import <hoedown/html.h>
 #import "hoedown_html_patch.h"
 #import "HGMarkdownHighlighter.h"
@@ -32,8 +31,9 @@
 #import "MPToolbarController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
-static NSString * const kMPDefaultAutosaveName = @"Untitled";
+@import Pluralist;
 
+static NSString * const kMPDefaultAutosaveName = @"Untitled";
 
 NS_INLINE NSString *MPEditorPreferenceKeyWithValueKey(NSString *key)
 {
@@ -302,20 +302,22 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 {
     _totalWords = value;
     NSString *key = NSLocalizedString(@"WORDS_PLURAL_STRING", @"");
-    NSInteger rule = kJJPluralFormRule.integerValue;
-    self.wordsMenuItem.title =
-        [JJPluralForm pluralStringForNumber:value withPluralForms:key
-                            usingPluralRule:rule localizeNumeral:NO];
+    NSInteger rule = [Pluralist kPluralFormRule].integerValue;
+    
+    NSString *words = [Pluralist pluralizeWithNumber:value withForms:key separator:@";" andRule:rule shouldLocalizeNumerals:NO];
+    
+    self.wordsMenuItem.title = words;
 }
 
 - (void)setTotalCharacters:(NSUInteger)value
 {
     _totalCharacters = value;
     NSString *key = NSLocalizedString(@"CHARACTERS_PLURAL_STRING", @"");
-    NSInteger rule = kJJPluralFormRule.integerValue;
-    self.charMenuItem.title =
-        [JJPluralForm pluralStringForNumber:value withPluralForms:key
-                            usingPluralRule:rule localizeNumeral:NO];
+    NSInteger rule = [Pluralist kPluralFormRule].integerValue;
+    
+    NSString *chars = [Pluralist pluralizeWithNumber:value withForms:key separator:@";" andRule:rule shouldLocalizeNumerals:NO];
+    
+    self.charMenuItem.title = chars;
 }
 
 - (void)setTotalCharactersNoSpaces:(NSUInteger)value
@@ -323,10 +325,11 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
     _totalCharactersNoSpaces = value;
     NSString *key = NSLocalizedString(@"CHARACTERS_NO_SPACES_PLURAL_STRING",
                                       @"");
-    NSInteger rule = kJJPluralFormRule.integerValue;
-    self.charNoSpacesMenuItem.title =
-        [JJPluralForm pluralStringForNumber:value withPluralForms:key
-                            usingPluralRule:rule localizeNumeral:NO];
+    NSInteger rule = [Pluralist kPluralFormRule].integerValue;
+    
+    NSString *chars = [Pluralist pluralizeWithNumber:value withForms:key separator:@";" andRule:rule shouldLocalizeNumerals:NO];
+    
+    self.charNoSpacesMenuItem.title = chars;
 }
 
 - (void)setAutosaveName:(NSString *)autosaveName

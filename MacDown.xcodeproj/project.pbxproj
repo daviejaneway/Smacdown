@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13E3DEA12CCC060000C1F65A /* Pluralist in Frameworks */ = {isa = PBXBuildFile; productRef = 13E3DEA02CCC060000C1F65A /* Pluralist */; };
 		1F002A23195B3DAE008B8D93 /* MPRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F002A22195B3DAE008B8D93 /* MPRenderer.m */; };
 		1F0D9D65194AC7CF008E1856 /* NSString+Lookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D5F194AC7CF008E1856 /* NSString+Lookup.m */; };
 		1F0D9D66194AC7CF008E1856 /* NSTextView+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D61194AC7CF008E1856 /* NSTextView+Autocomplete.m */; };
@@ -150,6 +151,7 @@
 
 /* Begin PBXFileReference section */
 		0D0EC0DE9FEA22F962083921 /* Pods-MacDownTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacDownTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacDownTests/Pods-MacDownTests.release.xcconfig"; sourceTree = "<group>"; };
+		13E3DE9E2CCBF59200C1F65A /* Pluralist */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Pluralist; sourceTree = "<group>"; };
 		1A198D1BA59D710201DD3BC8 /* Pods-MacDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacDown.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacDown/Pods-MacDown.debug.xcconfig"; sourceTree = "<group>"; };
 		1F002A21195B3DAE008B8D93 /* MPRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRenderer.h; sourceTree = "<group>"; };
 		1F002A22195B3DAE008B8D93 /* MPRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRenderer.m; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E3DEA12CCC060000C1F65A /* Pluralist in Frameworks */,
 				1FF1420219A8987500CF8A6A /* JavaScriptCore.framework in Frameworks */,
 				1FF207631941CF22005B5654 /* WebKit.framework in Frameworks */,
 				1FA6DE251941CC9E000409FB /* Cocoa.framework in Frameworks */,
@@ -561,6 +564,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13E3DE9D2CCBF57900C1F65A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				13E3DE9E2CCBF59200C1F65A /* Pluralist */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		1F0D9D5D194AC7CF008E1856 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +758,7 @@
 		1FA6DE181941CC9E000409FB = {
 			isa = PBXGroup;
 			children = (
+				13E3DE9D2CCBF57900C1F65A /* Packages */,
 				1F8A83551953453100B6BF69 /* Dependency */,
 				1FCDC9EB1944F89B00B1F966 /* MacDown */,
 				1FCDCA2F1944F96E00B1F966 /* MacDownTests */,
@@ -923,6 +935,9 @@
 				1FE2197819534A5D00DB931F /* PBXTargetDependency */,
 			);
 			name = MacDown;
+			packageProductDependencies = (
+				13E3DEA02CCC060000C1F65A /* Pluralist */,
+			);
 			productName = MarkPad;
 			productReference = 1FA6DE211941CC9E000409FB /* MacDown.app */;
 			productType = "com.apple.product-type.application";
@@ -1013,6 +1028,9 @@
 				da,
 			);
 			mainGroup = 1FA6DE181941CC9E000409FB;
+			packageReferences = (
+				13E3DE9F2CCC060000C1F65A /* XCLocalSwiftPackageReference "Packages/Pluralist" */,
+			);
 			productRefGroup = 1FA6DE221941CC9E000409FB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -1757,7 +1775,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacDown/Code/MacDown-Prefix.pch";
 				INFOPLIST_FILE = "MacDown/MacDown-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uranusjr.${PRODUCT_NAME:rfc1034identifier:lower}-debug";
 				PRODUCT_NAME = MacDown;
 				SDKROOT = macosx;
@@ -1775,7 +1793,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacDown/Code/MacDown-Prefix.pch";
 				INFOPLIST_FILE = "MacDown/MacDown-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uranusjr.${PRODUCT_NAME:rfc1034identifier:lower}";
 				PRODUCT_NAME = MacDown;
 				SDKROOT = macosx;
@@ -1905,6 +1923,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		13E3DE9F2CCC060000C1F65A /* XCLocalSwiftPackageReference "Packages/Pluralist" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Pluralist;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13E3DEA02CCC060000C1F65A /* Pluralist */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Pluralist;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FA6DE191941CC9E000409FB /* Project object */;
 }
